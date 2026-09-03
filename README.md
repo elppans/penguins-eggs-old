@@ -41,10 +41,6 @@ Contribuição / Histórico
 
 Contato
 
-- Repositório: elppans/penguins-eggs-old
+- Repositório: [elppans/penguins-eggs-old - issue](https://github.com/elppans/penguins-eggs-old/issues)  
 
----
 
-Se quiser, eu posso:
-- Adicionar instruções passo-a-passo de instalação/uso (se você me fornecer os comandos que executou).
-- Extrair e listar arquivos importantes do repositório (scripts de build, etc.).
