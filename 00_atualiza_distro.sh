@@ -20,3 +20,47 @@ if command -v flatpak ; then
 	flatpak uninstall --unused --delete-data # Eq. apt clean
 fi
 
+if command -v docker ; then
+# ----------------------------------------------------------#
+# -- Script de limpeza segura para Docker Swarm e Compose --#
+# ----------------------------------------------------------#
+
+# Script de limpeza segura para Docker Swarm e Compose
+
+echo " Serviços ativos no Swarm... "
+sudo docker service ls
+
+echo " Containers ativos... "
+sudo docker ps
+
+echo " Imagens disponíveis... "
+sudo docker images
+
+echo " Volumes existentes... "
+sudo docker volume ls
+
+echo " Redes existentes... "
+sudo docker network ls
+
+echo ""
+echo ">>> Limpando containers parados..."
+sudo docker container prune -f
+
+echo ">>> Limpando imagens não utilizadas..."
+sudo docker image prune -f
+sudo docker image prune -f -a
+
+echo ">>> Limpando volumes órfãos..."
+sudo docker volume prune -f
+
+echo ">>> Limpando redes não utilizadas..."
+sudo docker network prune -f
+
+echo ">>> Limpando geral (sem afetar serviços ativos)..."
+sudo docker system prune -f
+sudo docker system prune --volumes -f
+
+echo ""
+echo " Limpeza Docker concluída! "
+
+fi
